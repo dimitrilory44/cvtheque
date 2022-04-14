@@ -1,6 +1,5 @@
 package com.cvtheque.cvtheque.ws;
 
-import java.util.ArrayList;
 import java.util.HashSet;
 import java.util.List;
 import java.util.Optional;
@@ -12,8 +11,6 @@ import com.cvtheque.cvtheque.bo.Personne;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.data.domain.Page;
-import org.springframework.data.domain.Pageable;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.CrossOrigin;
@@ -87,21 +84,18 @@ public class CVWS {
 
 //	// La formation avec la personne qui l'a réalisé
 //	// Problème lié à l'ID personne 
-//	@GetMapping("/users/{id}/formations")
-//	public Set<Formation> listeFormation(@PathVariable("id") String id) {
-//		Long personid = (long) Integer.parseInt(id);
-//		Set<Formation> lsteFormation = new HashSet<Formation>();
-//						
-//		for(Formation f : manager.lstFormation()) {
-//			if(f.getPers().getId() == personid) {
-//				lsteFormation.add(f);
-//			}
-//		}
-//		System.out.println("listeFormation");
-//		System.out.println("------------------");
-//		System.out.println(lsteFormation);
-//		return lsteFormation;
-//	}
+	@GetMapping("/users/{id}/formations")
+	public Set<Formation> listeFormation(@PathVariable("id") String id) {
+		Long personid = (long) Integer.parseInt(id);
+		Set<Formation> lsteFormation = new HashSet<Formation>();
+						
+		for(Formation f : manager.lstFormation()) {
+			if(f.getPers().getId() == personid) {
+				lsteFormation.add(f);
+			}
+		}
+		return lsteFormation;
+	}
 	
 	@PostMapping("/users/{id}/formations")
 	public Formation ajoutFormation(@PathVariable String id, @RequestBody Formation f) {
@@ -124,8 +118,12 @@ public class CVWS {
 	}
 	
 	@DeleteMapping("/users/{idUser}/formations/{idFormation}")
-	public Formation deleteFormation(@PathVariable("idUser") String idUser, @PathVariable("idFormation") String idFormation) {
-		return null;
+	public String deleteFormation(@PathVariable("idUser") String idUser, @PathVariable("idFormation") String idForm) {
+//		Long idPersonne = (long) Integer.parseInt(idUser);
+		Long idFormation = (long) Integer.parseInt(idForm);
+		
+		manager.deleteFormation(idFormation);
+		return "la donnee a bien été supprimé";
 	}
 
 }

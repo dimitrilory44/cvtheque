@@ -99,4 +99,9 @@ public class CVManagerImpl implements CVManager {
 		
 		return lstExperiencetrou;
 	}
+
+	@Override
+	public void deleteFormation(Long id) {
+		daof.deleteById(id);
+	}
 }

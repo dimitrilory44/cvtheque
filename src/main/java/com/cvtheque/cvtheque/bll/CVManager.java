@@ -49,6 +49,7 @@ public interface CVManager {
 	 * @return la liste des formations
 	 */
 	public List<Formation> lstFormation();
+	
 	/**
 	 * Méthode qui permet d'ajouter une formation à l'utilisateur
 	 * @param fid correspond à l'ID de la personne
@@ -57,7 +58,15 @@ public interface CVManager {
 	 */
 	public Optional<Formation> addFormation(Long fid, Formation f);
 	
+	/**
+	 * Methode qui permet de récupérer les informations lié à la formation
+	 * @param id de la formation
+	 * @return la formation recherchée
+	 */
 	public Optional<Formation> findFormationById(Long id);
+	
+	public void deleteFormation(Long id);
+	
 	/**
 	 * Méthode qui permet de renvoyer la liste des expérience
 	 * @return la liste des expériences
