@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8">
+<title>Inscription</title>
+<!-- JQuery -->
+<script src="https://code.jquery.com/jquery-3.4.1.min.js"
+	integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo="
+	crossorigin="anonymous"></script>
+<script src="https://code.jquery.com/jquery-3.4.0.slim.min.js"></script>
+<!-- Bootstrap -->
+<link
+	href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
+	rel="stylesheet"
+	integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T"
+	crossorigin="anonymous">
+
+</head>
+
+
+<body>
+	<div class="container">
+
+		<form id="formCoureur" method="post" action="http://localhost:8080/">
+			<div class="row sm-4">
+				<div class="col">
+					<label for="nom">Nom : </label> 
+					<input class="form-control" type="text" name="nom" id="nom" value="" required />
+				</div>
+				<div class="col">
+					<label for="prenom">Prénom : </label> 
+					<input class="form-control" type="text" name="prenom" id="prenom" value="" required />
+				</div>
+				<div class="col">
+					<label for="naissance">Naissance : </label> 
+					<input class="form-control" type="text" name="naissance" id="naissance" value="" required />
+				</div>
+			</div>
+			<div class="row sm-4">
+				<div class="col">
+					<label for="naissance">Mail : </label> 
+					<input class="form-control" type="text" name="mail" id="mail" value="" required />
+				</div>
+				<div class="col">
+					<label for="telephone">Telephone : </label> 
+					<input class="form-control" type="text" name="telephone" id="telephone" value="" required />
+				</div>
+				<div class="col">
+					<label for="titre">Titre : </label> 
+					<input class="form-control" type="text" name="titre" id="titre" value="" required />
+				</div>
+			</div>
+
+			<div class="form-group">
+				<button class="btn btn-primary" id="btnAddPersonne">Ajouter</button>
+			</div>
+		</form>
+		
+		<div class="liste">
+			<table class="table table-stripped" id="listePersonne">
+			</table>
+			<table class="table table-stripped">
+				<thead class="thead-dark">
+					<tr>
+						<th>Nom</th>
+						<th>Prénom</th>
+						<th>Telephone</th>
+					</tr>
+				</thead>
+				<tbody id="listePersonne">
+				</tbody>
+			</table>
+		</div>
+
+	</div>
+</body>
+</html>
