@@ -41,6 +41,16 @@ public class Formation {
 		this.specialite = specialite;
 	}
 	
+	
+	
+	public Formation(Long idFormation, Integer dureeForm, String description, String specialite) {
+		super();
+		this.idFormation = idFormation;
+		this.dureeForm = dureeForm;
+		this.description = description;
+		this.specialite = specialite;
+	}
+
 	public Personne getPers() {
 		return personne;
 	}

@@ -3,9 +3,6 @@ package com.cvtheque.cvtheque.bll;
 import java.util.List;
 import java.util.Optional;
 
-import org.springframework.data.domain.Page;
-import org.springframework.data.domain.Pageable;
-
 import com.cvtheque.cvtheque.bo.Experience;
 import com.cvtheque.cvtheque.bo.Formation;
 import com.cvtheque.cvtheque.bo.Personne;
@@ -30,7 +27,7 @@ public interface CVManager {
 	 * @param id
 	 * @return l'objet personne de type optional
 	 */
-	public Optional<Personne> findPersonneById(Long id);
+	public Personne findPersonneById(Long id);
 	
 	/**
 	 * Méthode qui permet de supprimer une personne suivant son ID
@@ -63,7 +60,7 @@ public interface CVManager {
 	 * @param id de la formation
 	 * @return la formation recherchée
 	 */
-	public Optional<Formation> findFormationById(Long id);
+	public Formation findFormationById(Long id);
 	
 	public void deleteFormation(Long id);
 	

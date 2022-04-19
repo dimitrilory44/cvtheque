@@ -46,8 +46,8 @@ public class CVManagerImpl implements CVManager {
 	}
 	
 	@Override
-	public Optional<Personne> findPersonneById(Long id) {
-		return dao.findById(id);
+	public Personne findPersonneById(Long id) {
+		return dao.findById(id).get();
 	}
 	
 	@Override
@@ -64,8 +64,8 @@ public class CVManagerImpl implements CVManager {
 	}
 	
 	@Override
-	public Optional<Formation> findFormationById(Long id) {
-		return daof.findById(id);
+	public Formation findFormationById(Long id) {
+		return daof.findById(id).get();
 	}
 
 	@Override
