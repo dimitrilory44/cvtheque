@@ -28,8 +28,9 @@ public class CVWS {
 	
 	// Récupération de l'entité USERS
 	@PostMapping("/users")
-	private ResponseEntity<Personne> ajoutPersonne(@RequestBody Personne personne) {
-		return new ResponseEntity<>(manager.ajoutpersonne(personne), HttpStatus.OK);
+	private ResponseEntity<String> ajoutPersonne(@RequestBody Personne personne) {
+		manager.ajoutpersonne(personne);
+		return new ResponseEntity<>("La personne a bien été ajouté", HttpStatus.OK);
 	}
 	
 	@GetMapping("/users")
@@ -83,11 +84,10 @@ public class CVWS {
 	}
 	
 	@DeleteMapping("/users/{idUser}/formations/{idFormation}")
-	public String deleteFormation(@PathVariable("idUser") String idUser, @PathVariable("idFormation") String idForm) {
+	public ResponseEntity<String> deleteFormation(@PathVariable("idUser") String idUser, @PathVariable("idFormation") String idForm) {
 		Long idFormation = (long) Integer.parseInt(idForm);
-		
 		manager.deleteFormation(idFormation);
-		return "la donnee a bien été supprimé";
+		return new ResponseEntity<>("la formation a bien été supprimé", HttpStatus.OK);
 	}
 
 }
